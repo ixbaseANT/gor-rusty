@@ -35,32 +35,6 @@ $ cargo run --release --bin kaspad
 ```
 
 
-## Mining
-Mining is currently supported only on testnet, so once you've setup a test node, follow these instructions:
-
-- Download and unzip the latest binaries bundle of [kaspanet/kaspad](https://github.com/kaspanet/kaspad/releases).
-
-- In a separate terminal run the kaspanet/kaspad miner:
-
-```bash
-$ kaspaminer --testnet --miningaddr kaspatest:qrcqat6l9zcjsu7swnaztqzrv0s7hu04skpaezxk43y4etj8ncwfk308jlcew
-```
-
-- This will create and feed a DAG with the miner getting block templates from the node and submitting them back when mined. The node processes and stores the blocks while applying all currently implemented logic. Execution can be stopped and resumed, the data is persisted in a database.
-
-- You can replace the above mining address with your own address by creating one as described [here](https://github.com/kaspanet/docs/blob/main/Getting%20Started/Full%20Node%20Installation.md#creating-a-wallet-optional). 
-
-## Simulation framework (Simpa)
-
-Additionally, the current codebase supports a full in-process network simulation, building an actual DAG over virtual time with virtual delay and benchmarking validation time (following the simulation generation). Execute 
-```bash 
-cargo run --release --bin simpa -- --help
-``` 
-to see the full command line configuration supported by `simpa`. For instance, the following command will run a simulation producing 1000 blocks with communication delay of 2 seconds and BPS=8, and attempts to fill each block with up to 200 transactions.   
-
-```bash
-$ cargo run --release --bin simpa -- -t=200 -d=2 -b=8 -n=1000
-```
 
 ## Logging
 
