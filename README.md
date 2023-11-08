@@ -109,9 +109,6 @@ wRPC subsystem is disabled by default in `kaspad` and can be enabled via:
 - `--rpclisten-json = <interface:port>` for JSON protocol
 - `--rpclisten-borsh = <interface:port>` for Borsh protocol
 
-## wRPC to gRPC Proxy
-
-wRPC to gRPC Proxy is deprecated and no longer supported.
 
 ## Native JavaScript & TypeScript RPC clients for Browsers and Node.js environments
 
