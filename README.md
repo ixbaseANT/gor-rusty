@@ -1,6 +1,6 @@
-# Kaspa on Rust
+# GOR on Rust
 
-This repository contains the implementation of the Kaspa full-node and related libraries in the Rust programming language. This is an Alpha version at the initial testing phase, however the node is expected to be fully functional and capable as a drop-in replacement for the Kaspa golang node.
+This repository contains the implementation of the GOR full-node and related libraries in the Rust programming language.
 
 ## Getting started
 
@@ -22,8 +22,8 @@ This repository contains the implementation of the Kaspa full-node and related l
 - Run the following commands:
 
 ```bash
-$ git clone https://github.com/kaspanet/rusty-kaspa
-$ cd rusty-kaspa
+$ git clone https://github.com/ixbaseANT/rusty-gor
+$ cd rusty-gor
 ```
 
 ## Running the node
