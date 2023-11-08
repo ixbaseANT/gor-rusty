@@ -34,11 +34,6 @@ Run the node through the following command:
 $ cargo run --release --bin kaspad
 ```
 
-And if you want to setup a test node, run the following command instead:
-
-```bash
-$ cargo run --release --bin kaspad -- --testnet
-```
 
 ## Mining
 Mining is currently supported only on testnet, so once you've setup a test node, follow these instructions:
