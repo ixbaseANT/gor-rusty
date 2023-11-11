@@ -43,7 +43,7 @@ pub fn sompi_to_kaspa_string(sompi: u64) -> String {
 
 pub fn kaspa_suffix(network_type: &NetworkType) -> &'static str {
     match network_type {
-        NetworkType::Mainnet => "KAS",
+        NetworkType::Mainnet => "GOR",
         NetworkType::Testnet => "TKAS",
         NetworkType::Simnet => "SKAS",
         NetworkType::Devnet => "DKAS",
@@ -52,9 +52,10 @@ pub fn kaspa_suffix(network_type: &NetworkType) -> &'static str {
 
 #[inline]
 pub fn sompi_to_kaspa_string_with_suffix(sompi: u64, network_type: &NetworkType) -> String {
-    let kas = sompi_to_kaspa(sompi).separated_string();
+    let gor = sompi_to_kaspa(sompi).separated_string();
     let suffix = kaspa_suffix(network_type);
-    format!("{kas} {suffix}")
+    //    format!("{} {}", gor, suffix)
+    format!("{gor} {suffix}")
 }
 
 pub fn format_address_colors(address: &Address, range: Option<usize>) -> String {

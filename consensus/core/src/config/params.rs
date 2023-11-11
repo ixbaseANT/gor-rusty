@@ -273,23 +273,13 @@ impl From<NetworkId> for Params {
 pub const MAINNET_PARAMS: Params = Params {
     dns_seeders: &[
         // This DNS seeder is run by Denis Mashkevich
-        "mainnet-dnsseed-1.kaspanet.org",
+        "ixbase.info",
         // This DNS seeder is run by Denis Mashkevich
-        "mainnet-dnsseed-2.kaspanet.org",
+        "maxgor.info",
         // This DNS seeder is run by Constantine Bytensky
-        "dnsseed.cbytensky.org",
+        "gorbaniov.com",
         // This DNS seeder is run by Georges Künzli
-        "seeder1.kaspad.net",
-        // This DNS seeder is run by Georges Künzli
-        "seeder2.kaspad.net",
-        // This DNS seeder is run by Georges Künzli
-        "seeder3.kaspad.net",
-        // This DNS seeder is run by Georges Künzli
-        "seeder4.kaspad.net",
-        // This DNS seeder is run by Tim
-        "kaspadns.kaspacalc.net",
-        // This DNS seeder is run by supertypo
-        "n-mainnet.kaspa.ws",
+        "euroclinic.online",
     ],
     net: NetworkId::new(NetworkType::Mainnet),
     genesis: GENESIS,
