@@ -1,6 +1,6 @@
-# Kaspa on Rust
+# GOR on Rust
 
-This repository contains the implementation of the Kaspa full-node and related libraries in the Rust programming language. This is an Alpha version at the initial testing phase, however the node is expected to be fully functional and capable as a drop-in replacement for the Kaspa golang node.
+This repository contains the implementation of the GOR full-node and related libraries in the Rust programming language.
 
 ## Getting started
 
@@ -12,7 +12,7 @@ This repository contains the implementation of the Kaspa full-node and related l
   - Windows: [protoc-21.10-win64.zip](https://github.com/protocolbuffers/protobuf/releases/download/v21.10/protoc-21.10-win64.zip) and add `bin` directory to `Path`
   - MacOS: `brew install protobuf`
 - Install the [clang toolchain](https://clang.llvm.org/) (required for RocksDB and WASM `secp256k1` builds)
-  - Linux: `apt-get install clang-format clang-tidy clang-tools clang clangd libc++-dev libc++1 libc++abi-dev libc++abi1 libclang-dev libclang1 liblldb-dev libllvm-ocaml-dev libomp-dev libomp5 lld lldb llvm-dev llvm-runtime llvm python3-clang`
+  - Linux: `sudo apt-get install clang-format clang-tidy clang-tools clang clangd libc++-dev libc++1 libc++abi-dev libc++abi1 libclang-dev libclang1 liblldb-dev libllvm-ocaml-dev libomp-dev libomp5 lld lldb llvm-dev llvm-runtime llvm python3-clang`
   - Windows: Please see [Installing clang toolchain on Windows](#installing-clang-toolchain-on-windows)
   - MacOS: Please see [Installing clang toolchain on MacOS](#installing-clang-toolchain-on-macos)
 - Install the [rust toolchain](https://rustup.rs/)
@@ -22,8 +22,8 @@ This repository contains the implementation of the Kaspa full-node and related l
 - Run the following commands:
 
 ```bash
-$ git clone https://github.com/kaspanet/rusty-kaspa
-$ cd rusty-kaspa
+$ git clone https://github.com/ixbaseANT/rusty-gor
+$ cd rusty-gor
 ```
 
 ## Running the node
@@ -34,73 +34,6 @@ Run the node through the following command:
 $ cargo run --release --bin kaspad
 ```
 
-And if you want to setup a test node, run the following command instead:
-
-```bash
-$ cargo run --release --bin kaspad -- --testnet
-```
-
-## Mining
-Mining is currently supported only on testnet, so once you've setup a test node, follow these instructions:
-
-- Download and unzip the latest binaries bundle of [kaspanet/kaspad](https://github.com/kaspanet/kaspad/releases).
-
-- In a separate terminal run the kaspanet/kaspad miner:
-
-```bash
-$ kaspaminer --testnet --miningaddr kaspatest:qrcqat6l9zcjsu7swnaztqzrv0s7hu04skpaezxk43y4etj8ncwfk308jlcew
-```
-
-- This will create and feed a DAG with the miner getting block templates from the node and submitting them back when mined. The node processes and stores the blocks while applying all currently implemented logic. Execution can be stopped and resumed, the data is persisted in a database.
-
-- You can replace the above mining address with your own address by creating one as described [here](https://github.com/kaspanet/docs/blob/main/Getting%20Started/Full%20Node%20Installation.md#creating-a-wallet-optional). 
-
-## Simulation framework (Simpa)
-
-Additionally, the current codebase supports a full in-process network simulation, building an actual DAG over virtual time with virtual delay and benchmarking validation time (following the simulation generation). Execute 
-```bash 
-cargo run --release --bin simpa -- --help
-``` 
-to see the full command line configuration supported by `simpa`. For instance, the following command will run a simulation producing 1000 blocks with communication delay of 2 seconds and BPS=8, and attempts to fill each block with up to 200 transactions.   
-
-```bash
-$ cargo run --release --bin simpa -- -t=200 -d=2 -b=8 -n=1000
-```
-
-## Logging
-
-Logging in `kaspad` and `simpa` can be [filtered](https://docs.rs/env_logger/0.10.0/env_logger/#filtering-results) either by defining the environment variable `RUST_LOG` and/or by adding a `--loglevel` argument to the command, ie.:
-
-```bash
-$ (cargo run --bin kaspad -- --loglevel info,kaspa_rpc_core=trace,kaspa_grpc_core=trace,consensus=trace,kaspa_core=trace) 2>&1 | tee ~/rusty-kaspa.log
-```
-
-## Heap-profiling
-Heap-profiling in `kaspad` and `simpa` can be done by enabling `heap` feature and profile, ie.:
-
-```bash
-$ cargo run --bin kaspad --profile heap --features=heap
-```
-
-It will produce `{bin-name}-heap.json` file in the root of the workdir, that can be inspected by the [dhat-viewer](https://github.com/unofficial-mirror/valgrind/tree/master/dhat)
-
-## Tests & Benchmarks
-
-- To run unit and most integration tests use:
-
-```bash
-$ cd rusty-kaspa
-$ cargo test --release
-// or install nextest and run
-$ cargo nextest run --release
-```
-
-- To run current benchmarks:
-
-```bash
-$ cd rusty-kaspa
-$ cargo bench
-```
 
 ## Building WASM
 
@@ -176,9 +109,6 @@ wRPC subsystem is disabled by default in `kaspad` and can be enabled via:
 - `--rpclisten-json = <interface:port>` for JSON protocol
 - `--rpclisten-borsh = <interface:port>` for Borsh protocol
 
-## wRPC to gRPC Proxy
-
-wRPC to gRPC Proxy is deprecated and no longer supported.
 
 ## Native JavaScript & TypeScript RPC clients for Browsers and Node.js environments
 

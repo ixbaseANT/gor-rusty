@@ -275,10 +275,15 @@ pub const MAINNET_PARAMS: Params = Params {
         // This DNS seeder is run by Denis Mashkevich
         "ixbase.info",
         // This DNS seeder is run by Denis Mashkevich
+<<<<<<< HEAD
         "maxgor.info",
         // This DNS seeder is run by Constantine Bytensky
         "gorbaniov.com",
         // This DNS seeder is run by Georges Künzli
+=======
+        "gorbaniov.com",
+        // This DNS seeder is run by Constantine Bytensky
+>>>>>>> origin/main
         "euroclinic.online",
     ],
     net: NetworkId::new(NetworkType::Mainnet),
